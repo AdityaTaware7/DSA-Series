@@ -12,6 +12,11 @@ void display(vector<int> v)
     cout<<endl;
 }
 
+bool f(int x, int y)
+{
+    return x > y;
+}
+
 int main(){
     // Ways to create a vector 
     vector<int> v1;// 0 element int vector
@@ -55,14 +60,19 @@ int main(){
     cout<<"After sorting array becomes ";
     display(v);
 
+    // Sorting array in reverse order
+    cout<<"After sorting array in reverse order array becomes "<<endl;
+    sort(v.begin(), v.end(), f);
+    display(v);
+
     // Binary search for finding 21 in the array
     bool present = binary_search(v.begin(), v.end(), 21); // true
-    cout<<"Is 21 present in the array: "<<endl;
-    cout<<present;
+    cout<<"Is 21 present in the array: ";
+    cout<<present<<endl;
 
     present = binary_search(v.begin(), v.end(), 210); // false
-    cout<<"Is 210 present in the array: "<<endl;
-    cout<<present;
+    cout<<"Is 210 present in the array: ";
+    cout<<present<<endl;
 
 
     v.push_back(100);
@@ -82,6 +92,8 @@ int main(){
     cout<<"Number of ocurrences of 100 in the array ";
     display(v);
     cout<<count<<endl;
+
+
 
 
     return 0;
