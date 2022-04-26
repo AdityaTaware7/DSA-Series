@@ -85,7 +85,7 @@ int main(){
     v.push_back(100);
 
     // For finding the first ocurrence of a letter 
-    vector<int>::iterator it1 = lower_bound(v.begin(), v.end(), 100); // Returns position of element less than or equal to 100 also keep in mind it will return first ocurrence
+    vector<int>::iterator it1 = lower_bound(v.begin(), v.end(), 100); // Returns position of element greater than or equal to 100 also keep in mind it will return first ocurrence
 
     // auto it1 = lower_bound(v.begin(), v.end(), 100);
     // new syntax
