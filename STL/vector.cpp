@@ -63,7 +63,12 @@ int main(){
     // Sorting array in reverse order
     cout<<"After sorting array in reverse order array becomes "<<endl;
     sort(v.begin(), v.end(), f);
-    display(v);
+    // new syntax in c++ for printing
+    for (int x : v1)
+    {
+        cout<<x<<" ";
+    }
+    
 
     // Binary search for finding 21 in the array
     bool present = binary_search(v.begin(), v.end(), 21); // true
@@ -72,7 +77,7 @@ int main(){
 
     present = binary_search(v.begin(), v.end(), 210); // false
     cout<<"Is 210 present in the array: ";
-    cout<<present<<endl;
+    cout<<present;
 
 
     v.push_back(100);
@@ -81,16 +86,24 @@ int main(){
 
     // For finding the first ocurrence of a letter 
     vector<int>::iterator it1 = lower_bound(v.begin(), v.end(), 100); // Returns position of element less than or equal to 100 also keep in mind it will return first ocurrence
+
+    // auto it1 = lower_bound(v.begin(), v.end(), 100);
+    // new syntax
     cout<<"First pos of 100 in array ";
     display(v);
     cout<<"is "<<*it1<<endl;
 
-    vector<int>::iterator it2 = upper_bound(v.begin(), v.end(), 100);// Returns pos of first element greater 100 
+    auto it2 = upper_bound(v.begin(), v.end(), 100);// Returns pos of first element greater 100 
 
     // To find the count of 100 in an array
     int count = it2 - it1;
     cout<<"Number of ocurrences of 100 in the array ";
-    display(v);
+    // new syntax in c++ for printing vector
+    for (int x : v1)
+    {
+        cout<<x<<" ";
+    }
+    
     cout<<count<<endl;
 
 
