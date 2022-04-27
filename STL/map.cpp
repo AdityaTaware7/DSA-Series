@@ -9,7 +9,7 @@ int main(){
     a[2] = 29;
     a[70] = 32;
     a[15] = 17;
-    // we can also find/ delete key in map using a.find(key) and a.erase(key)
+    // we can also find delete key in map using a.find(key) and a.erase(key)
 
     map<char, int> count;
     string s = "aditya taware";
