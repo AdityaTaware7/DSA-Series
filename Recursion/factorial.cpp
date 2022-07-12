@@ -8,7 +8,7 @@ int factorial(int n)
         return 1;
 
     // Recursive call
-    int ans = n * factorial(n-1);
+    int ans = n * factorial(n - 1);
     return ans;
 }
 
