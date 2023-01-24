@@ -1,65 +1,53 @@
-#include <iostream>
- 
+/******************************************************************************
+
+Welcome to GDB Online.
+GDB online is an online compiler and debugger tool for C, C++, Python, Java, PHP, Ruby, Perl,
+C#, OCaml, VB, Swift, Pascal, Fortran, Haskell, Objective-C, Assembly, HTML, CSS, JS, SQLite, Prolog.
+Code, Compile, Run and Debug online from anywhere in world.
+
+*******************************************************************************/
+#include <bits/stdc++.h>
+
 using namespace std;
- 
-void quick_sort(int[],int,int);
-int partition(int[],int,int);
-int main()
+
+int partition(int l, int h, vector<int> &a)
 {
-    int a[50],n,i;
-    cout<<"How many elements?";
-    cin>>n;
-    cout<<"\nEnter array elements:";
-    
-    for(i=0;i<n;i++)
-        cin>>a[i];
-        
-    quick_sort(a,0,n-1);
-    cout<<"\nArray after sorting:";
-    
-    for(i=0;i<n;i++)
-        cout<<a[i]<<" ";
-    
-    return 0;        
-}
-void quick_sort(int a[],int l,int u)
-{
-    int j;
-    if(l<u)
+    int pivot = a[l];
+    int i = l;
+    int j = h;
+    while(i < j)
     {
-        j=partition(a,l,u);
-        quick_sort(a,l,j-1);
-        quick_sort(a,j+1,u);
+        while(a[i] <= pivot)    i++;
+        while(a[j] > pivot)     j--;
+        
+        if(i < j)
+        {
+            swap(a[i], a[j]);
+        }
+    }
+    swap(a[j], a[l]);
+    return j;
+}
+
+void quicksort(vector<int> &v, int l, int h)
+{
+    if(l < h)
+    {
+        int pivot = partition(l,h,v);
+        quicksort(v, l, pivot-1);
+        quicksort(v, pivot+1, h);
     }
 }
-int partition(int a[],int l,int u)
+
+int main()
 {
-    int v,i,j,temp;
-    v=a[l];
-    i=l;
-    j=u+1;
-    
-    do
-    {
-        do
-            i++;
-            
-        while(a[i]<v&&i<=u);
-        
-        do
-            j--;
-        while(v<a[j]);
-        
-        if(i<j)
-        {
-            temp=a[i];
-            a[i]=a[j];
-            a[j]=temp;
-        }
-    }while(i<j);
-    
-    a[l]=a[j];
-    a[j]=v;
-    
-    return(j);
+    vector<int> v = {6,1,8,3,4,2};
+    for(int i = 0; i < v.size(); i++)
+        cout<<v[i];
+    cout<<endl;
+    quicksort(v, 0, v.size()-1);
+    for(int i = 0; i < v.size(); i++)
+        cout<<v[i];
+    cout<<endl;
+    return 0;
 }

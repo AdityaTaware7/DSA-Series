@@ -29,18 +29,14 @@ void inorder(node *root)
 
 int height(node *root)
 {
-    int x,y;
-    if(root != NULL)
-    {
-        x = height(root->left);
-        y = height(root->right);
-        if(x > y)
-            return x + 1;
-        else
-            return y + 1;
-    }
+    if(root == NULL)
+        return 0;
     
-    return 0;
+    int leftSubtree = height(root->left);
+    int rightSubtree = height(root->right);
+    int ans = max(leftSubtree, rightSubtree) + 1;
+
+    return ans;
 }
 
 
@@ -49,8 +45,11 @@ int main() {
     node *root = new node(1);
     root->left = new node(2);
     root->right = new node(3);
-    root->left->left = new node(4);
-    root->left->right = new node(5);
+    root->left->left = new node(5);
+    root->left->right = new node(9);
+    root->left->left->right = new node(17);
+    root->left->left->right->right = new node(11);
+    root->right->left = new node(15);
     
     // height  of tree
     cout<<"Height of the tree is ";
